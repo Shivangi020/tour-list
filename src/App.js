@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import React ,{useState , createContext} from 'react'
+import Refresh from './Component/Refresh';
+import CardSection from './Component/CardSection';
 import './App.css';
 
+export const TourGlobalData = createContext()
+
 function App() {
+  const [tour ,setTour] = useState([]);
+  const [refresh ,setRefresh] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <TourGlobalData.Provider value={{tour,setTour,refresh,setRefresh}}>
+    <div className='tour-main-page'>
+       <div className='tour-heading'>Our Tours</div>
+       <hr className='heading-hr'></hr>
+       {refresh ? <Refresh/> :<CardSection/>}
     </div>
-  );
+    </TourGlobalData.Provider>
+  )
 }
 
 export default App;
