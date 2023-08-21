@@ -11,7 +11,7 @@ function App() {
   return (
     <TourGlobalData.Provider value={{tour,setTour,refresh,setRefresh}}>
     <div className='tour-main-page'>
-       <div className='tour-heading'>Our Tours</div>
+       <div className='tour-heading'>Tours</div>
        <hr className='heading-hr'></hr>
        {refresh ? <Refresh/> :<CardSection/>}
     </div>
